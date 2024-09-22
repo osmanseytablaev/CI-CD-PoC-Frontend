@@ -24,6 +24,7 @@ jobs:
       # Install dependencies (use different steps for backend/frontend)
       - name: Install dependencies
         run: |
+          cd frontend
           npm install
 
       # Build the project to check if it can build successfully
