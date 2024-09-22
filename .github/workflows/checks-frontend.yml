@@ -29,5 +29,5 @@ jobs:
       # Build the project to check if it can build successfully
       - name: Build project
         run: |
-          cd frontend/src
+          cd frontend
           npm run build  # Adjust this command based on frontend/backend build process
