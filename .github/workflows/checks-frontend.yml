@@ -3,7 +3,7 @@ name: Feature Branch Checks
 on:
   push:
     branches:
-      - 'string-realisation/*'  # Only trigger on feature branches
+      - string-realisation  # Only trigger on feature branches
   pull_request:
     branches:
       - main  # Also run checks on pull requests to main
@@ -29,4 +29,5 @@ jobs:
       # Build the project to check if it can build successfully
       - name: Build project
         run: |
+          cd frontend/src
           npm run build  # Adjust this command based on frontend/backend build process
