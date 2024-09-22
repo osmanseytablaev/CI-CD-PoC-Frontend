@@ -1,0 +1,32 @@
+name: Feature Branch Checks
+
+on:
+  push:
+    branches:
+      - 'string-realisation/*'  # Only trigger on feature branches
+  pull_request:
+    branches:
+      - main  # Also run checks on pull requests to main
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      # Install dependencies (use different steps for backend/frontend)
+      - name: Install dependencies
+        run: |
+          npm install
+
+      # Build the project to check if it can build successfully
+      - name: Build project
+        run: |
+          npm run build  # Adjust this command based on frontend/backend build process
